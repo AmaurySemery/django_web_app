@@ -9,9 +9,10 @@
     <p>Mes groupes préférés sont :</p>
     <ul>
         {% for band in bands %}
-        <li>{{ band.name }}</li>
+        <li>{{ band.name|upper }}</li>
         {% endfor %}
     </ul>
+    <p>J'ai {{ bands|length }} groupes préférés.</p>
 </body>
 
 </html>
