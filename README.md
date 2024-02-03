@@ -33,3 +33,6 @@ pip freeze > requirements.txt
 * listings/ - le répertoire de l’application généré par « python manage.py startapp listings »
 
 * ...les fichiers spécifiques aux applications que nous explorerons tout au long du cours
+
+
+Pour lancer le serveur : python manage.py runserver
