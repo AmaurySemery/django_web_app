@@ -3,6 +3,8 @@ from django.db import models
 
 
 class Band(models.Model):
+    def __str__(self):
+        return f'{self.name}'
 
     class Genre(models.TextChoices):
         HIP_HOP = 'HH'
@@ -21,6 +23,8 @@ class Band(models.Model):
 
 
 class Listing(models.Model):
+    def __str__(self):
+        return f'{self.name}'
 
     class ListingType(models.TextChoices):
         RECORDS = 'R'
@@ -38,3 +42,4 @@ class Listing(models.Model):
     )
     type = models.fields.CharField(choices=ListingType.choices, max_length=5)
     band = models.ForeignKey(Band, null=True, on_delete=models.SET_NULL)
+    
