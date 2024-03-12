@@ -2,7 +2,7 @@
 
 mkdir new_project
 
-cd new_project h
+cd new_project
 
 git init 
 
