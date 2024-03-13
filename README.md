@@ -8,7 +8,7 @@ git init
 
 python -m venv env 
 
-source env/Scripts/activate g
+source env/Scripts/activate 
 
 pip install django 
 
