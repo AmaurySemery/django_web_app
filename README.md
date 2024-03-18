@@ -6,7 +6,7 @@ cd new_project
 
 git init 
 
-python -m venv env 
+python -m venv env t
 
 source env/Scripts/activate 
 
