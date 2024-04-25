@@ -20,6 +20,9 @@ def about(request):
 
 def contact(request):
   form = ContactUsForm()  # ajout d’un nouveau formulaire ici
+  print('La méthode de requête est : ', request.method)
+  print('Les données POST sont : ', request.POST)
   return render(request,
           'listings/contact.html',
           {'form': form})  # passe ce formulaire au gabarit
+                
