@@ -3,6 +3,7 @@ from django.shortcuts import render
 from listings.models import Band
 from listings.forms import ContactUsForm
 from django.core.mail import send_mail
+from django.shortcuts import redirect
 
 def band_list(request):  # renommer la fonction de vue
    bands = Band.objects.all()
@@ -15,6 +16,10 @@ def band_detail(request, id):
   return render(request,
           'listings/band_detail.html',
           {'band': band}) # nous mettons à jour cette ligne pour passer le groupe au gabarit
+
+def email_send(request):
+   return render(request,
+          'listings/email_send.html',)
 
 def about(request):
     return HttpResponse('<h1>À propos</h1> <p>Nous adorons merch !</p>')
@@ -30,6 +35,7 @@ def contact(request):
             from_email=form.cleaned_data['email'],
             recipient_list=['admin@merchex.xyz'],
         )
+            return redirect('email_send')
     # si le formulaire n'est pas valide, nous laissons l'exécution continuer jusqu'au return
     # ci-dessous et afficher à nouveau le formulaire (avec des erreurs).
   
