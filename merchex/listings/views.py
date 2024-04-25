@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from listings.models import Band
 from listings.forms import ContactUsForm
+from django.core.mail import send_mail
 
 def band_list(request):  # renommer la fonction de vue
    bands = Band.objects.all()
@@ -22,6 +23,15 @@ def contact(request):
   if request.method == "POST":
      # Créer une instance du formulaire et le remplir avec les données POST
      form = ContactUsForm(request.POST)
+     if form.is_valid():
+            send_mail(
+            subject=f'Message from {form.cleaned_data["name"] or "anonyme"} via MerchEx Contact Us form',
+            message=form.cleaned_data['message'],
+            from_email=form.cleaned_data['email'],
+            recipient_list=['admin@merchex.xyz'],
+        )
+    # si le formulaire n'est pas valide, nous laissons l'exécution continuer jusqu'au return
+    # ci-dessous et afficher à nouveau le formulaire (avec des erreurs).
   
   else:
      # Ceci doit être une requête GET, donc créer un formulaire vide
