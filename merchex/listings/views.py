@@ -19,15 +19,12 @@ def about(request):
     return HttpResponse('<h1>À propos</h1> <p>Nous adorons merch !</p>')
 
 def contact(request):
-  # La vue crée un nouveau formulaire vide à chaque fois qu'elle s'exécute
-  form = ContactUsForm()  # ajout d’un nouveau formulaire ici
-  print('La méthode de requête est : ', request.method)
-  print('Les données POST sont : ', request.POST)
-
   if request.method == "POST":
+     # Créer une instance du formulaire et le remplir avec les données POST
      form = ContactUsForm(request.POST)
   
   else:
+     # Ceci doit être une requête GET, donc créer un formulaire vide
      form = ContactUsForm()
   return render(request,
           'listings/contact.html',
