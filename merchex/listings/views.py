@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from listings.models import Band
-from listings.forms import ContactUsForm
+from listings.forms import BandForm, ContactUsForm
 from django.core.mail import send_mail
 from django.shortcuts import redirect
 
@@ -20,6 +20,12 @@ def band_detail(request, id):
 def email_send(request):
    return render(request,
           'listings/email_send.html',)
+
+def band_create(request):
+   form = BandForm()
+   return render(request,
+            'listings/band_create.html',
+            {'form': form})
 
 def about(request):
     return HttpResponse('<h1>À propos</h1> <p>Nous adorons merch !</p>')
