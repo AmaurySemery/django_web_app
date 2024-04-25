@@ -38,3 +38,8 @@ pip freeze > requirements.txt
 
 
 Pour lancer le serveur : python manage.py runserver
+
+Quelques ressources : 
+https://docs.djangoproject.com/fr/3.2/topics/security/
+https://docs.djangoproject.com/fr/3.2/ref/csrf/
+https://openclassrooms.com/fr/courses/6179306-securisez-vos-applications-web-avec-lowasp
