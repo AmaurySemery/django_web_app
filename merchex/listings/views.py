@@ -62,7 +62,7 @@ def band_delete(request, id):
         # supprimer le groupe de la base de données
         band.delete()
         # rediriger vers la liste des groupes
-        return redirect('band_list')
+        return redirect('band-list')
 
     # pas besoin de « else » ici. Si c'est une demande GET, continuez simplement
 
